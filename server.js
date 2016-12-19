@@ -5,9 +5,7 @@ const upload = multer();
 
 const port = process.env.PORT || 8080;
 
-app.get('/', function(req, res) {
-  res.send('Hello World!');
-});
+app.use(express.static(__dirname + '/public'));
 
 app.post('/upload', upload.single('file'), function(req, res) {
   res.json({
