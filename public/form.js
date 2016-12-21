@@ -10,7 +10,13 @@ form.addEventListener('submit', function(e) {
   const request = new XMLHttpRequest();
   request.onreadystatechange = function() {
     if (request.readyState !== request.DONE) return;
-    if (request.status !== 200) return;
+    if (request.status !== 200) {
+      output.innerHTML =
+`<div class="alert alert-danger">
+  <p>Oops, something went wrong.</p>
+</div>`;
+      return;
+    }
 
     const response = JSON.parse(request.responseText);
     output.innerHTML =
