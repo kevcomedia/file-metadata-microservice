@@ -15,7 +15,7 @@ form.addEventListener('submit', function(e) {
     const response = JSON.parse(request.responseText);
     output.innerHTML =
 `<div class="well">
-  <samp>{<br>&nbsp;&nbsp;name: ${response.name},<br>&nbsp;&nbsp;size: ${response.size}<br>}</samp>
+  <samp>{<br>&nbsp;&nbsp;"name": "${response.name}",<br>&nbsp;&nbsp;"size": ${response.size}<br>}</samp>
 </div>`;
   };
   request.open('POST', '/upload', true);
